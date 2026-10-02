@@ -1,0 +1,12 @@
+TAX_RATE = 0.13 # Налоговая ставка 13%
+
+# Ввод данных от пользователя
+income = float(input("Введите ваш годовой доход: "))
+
+# Расчеты
+tax_amount = income * TAX_RATE
+net_income = income - tax_amount
+
+print(f"Общая сумма дохода: {income:_.2f} руб.".replace("_", " "))
+print(f"Сумма рассчитанного налога: {tax_amount:_.2f} руб.".replace("_", " "))
+print(f"Сумма «на руки» после вычета налога: {net_income:_.2f} руб.".replace("_", " "))
