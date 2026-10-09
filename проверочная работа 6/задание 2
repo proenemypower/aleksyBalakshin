@@ -1,0 +1,37 @@
+MIN_POCKET = 0
+MAX_POCKET = 36
+
+COLOR_GREEN = "зеленый"
+COLOR_RED = "красный"
+COLOR_BLACK = "черный"
+
+print("--- Цвета колеса рулетки ---")
+
+try:
+    pocket = int(input("Введите номер кармана (от 0 до 36): "))
+
+    if not (MIN_POCKET <= pocket <= MAX_POCKET):
+        print("ошибка ввода")
+
+    #Зеленый сектор
+    elif pocket == 0:
+        print(f"Цвет кармана: {COLOR_GREEN}")
+
+    #Диапазоны от 1 до 10 и от 19 до 28
+    elif (1 <= pocket <= 10) or (19 <= pocket <= 28):
+        #Если нечетное число красный, иначе черный
+        if pocket % 2 != 0:
+            print(f"Цвет кармана: {COLOR_RED}")
+        else:
+            print(f"Цвет кармана: {COLOR_BLACK}")
+
+    #Диапазоны от 11 до 18 и от 29 до 36
+    elif (11 <= pocket <= 18) or (29 <= pocket <= 36):
+        #Если нечетное число черный, иначе красный
+        if pocket % 2 != 0:
+            print(f"Цвет кармана: {COLOR_BLACK}")
+        else:
+            print(f"Цвет кармана: {COLOR_RED}")
+
+except ValueError:
+    print("ошибка ввода")
