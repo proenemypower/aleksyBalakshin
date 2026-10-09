@@ -1,0 +1,32 @@
+TEMP_NORM_MIN, TEMP_NORM_MAX = 36.0, 37.0
+PRESS_NORM_MIN, PRESS_NORM_MAX = 110, 130
+PULSE_NORM_MIN, PULSE_NORM_MAX = 60, 100
+
+TEMP_CRIT_MIN, TEMP_CRIT_MAX = 35.0, 38.0
+PRESS_CRIT_MIN, PRESS_CRIT_MAX = 105, 140
+PULSE_CRIT_MIN, PULSE_CRIT_MAX = 55, 110
+
+print("Диагностика состояния здоровья")
+
+try:
+    temperature = float(input("Введите температуру тела (°C): "))
+    pressure = int(input("Введите верхнее артериальное давление: "))
+    pulse = int(input("Введите пульс (уд/мин): "))
+
+    if (temperature < TEMP_CRIT_MIN or temperature > TEMP_CRIT_MAX or
+            pressure < PRESS_CRIT_MIN or pressure > PRESS_CRIT_MAX or
+            pulse < PULSE_CRIT_MIN or pulse > PULSE_CRIT_MAX):
+        status = "Требуется врач"
+
+    elif (TEMP_NORM_MIN <= temperature <= TEMP_NORM_MAX and
+          PRESS_NORM_MIN <= pressure <= PRESS_NORM_MAX and
+          PULSE_NORM_MIN <= pulse <= PULSE_NORM_MAX):
+        status = "Нормальное состояние"
+
+    else:
+        status = "Легкое недомогание"
+
+    print(f"\nРезультат диагностики: {status}")
+
+except ValueError:
+    print("Ошибка: пожалуйста, вводите только числовые значения.")
