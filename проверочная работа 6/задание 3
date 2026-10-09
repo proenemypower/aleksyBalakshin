@@ -1,0 +1,34 @@
+BOARD_MIN = 1
+BOARD_MAX = 8
+
+print("Сравнение цвета клеток шахматной доски")
+
+try:
+    col1 = int(input("Введите номер столбца 1-й клетки (1-8): "))
+    row1 = int(input("Введите номер строки 1-й клетки (1-8): "))
+
+    col2 = int(input("Введите номер столбца 2-й клетки (1-8): "))
+    row2 = int(input("Введите номер строки 2-й клетки (1-8): "))
+
+    #Проверка корректности ввода координат
+    if not (BOARD_MIN <= col1 <= BOARD_MAX and
+            BOARD_MIN <= row1 <= BOARD_MAX and
+            BOARD_MIN <= col2 <= BOARD_MAX and
+            BOARD_MIN <= row2 <= BOARD_MAX):
+        print("Ошибка: введенные координаты выходят за пределы доски (1-8).")
+
+    else:
+        is_cell1_even = (col1 + row1) % 2 == 0
+        is_cell2_even = (col2 + row2) % 2 == 0
+
+        #Сравнение цветов
+        if is_cell1_even == is_cell2_even:
+            result = "YES"
+        else:
+            result = "NO"
+
+        #Вывод результата с использованием f-строки
+        print(f"{result}")
+
+except ValueError:
+    print("Ошибка: пожалуйста, вводите только целые числа.")
